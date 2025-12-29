@@ -124,8 +124,14 @@
                 
                 <!-- Text Content -->
                 <div class="flex-1 text-center lg:text-left pt-8 lg:pt-0">
-                    <div class="inline-block px-3 py-1 mb-6 border border-brand-gold/30 rounded-full bg-brand-gold/5 fade-in-up">
-                        <span class="text-xs font-bold text-brand-gold tracking-widest uppercase">Internato Médico • UFVJM</span>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-6 fade-in-up">
+                        <div class="inline-block px-3 py-1 border border-brand-gold/30 rounded-full bg-brand-gold/5">
+                            <span class="text-xs font-bold text-brand-gold tracking-widest uppercase">Internato Médico • UFVJM</span>
+                        </div>
+                        <!-- Registro Profissional / CRM Placeholder -->
+                        <div class="inline-block px-3 py-1 border border-gray-200 rounded-full bg-gray-50">
+                            <span class="text-xs font-bold text-gray-400 tracking-widest uppercase italic">CRM-MG: Em breve</span>
+                        </div>
                     </div>
                     
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-navy leading-tight mb-6 fade-in-up delay-100">
@@ -381,15 +387,18 @@
                 </div>
                 
                 <div class="flex gap-6">
-                    <a href="https://wa.me/5538998390438" class="p-3 bg-gray-50 rounded-full text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm">
+                    <a href="https://wa.me/5538998390438" class="p-3 bg-gray-50 rounded-full text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm" title="WhatsApp">
                         <i data-lucide="message-circle" class="w-5 h-5"></i>
                     </a>
-                    <a href="mailto:arisson.danilo@ufvjm.edu.br" class="p-3 bg-gray-50 rounded-full text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm">
+                    <a href="mailto:arisson.danilo@ufvjm.edu.br" class="p-3 bg-gray-50 rounded-full text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm" title="Email">
                         <i data-lucide="mail" class="w-5 h-5"></i>
                     </a>
-                    <a href="http://lattes.cnpq.br/1577887449026716" target="_blank" class="p-3 bg-gray-50 rounded-full hover:bg-brand-navy hover:text-white transition-all shadow-sm group">
-                        <!-- Tiny Lattes Icon -->
+                    <a href="http://lattes.cnpq.br/1577887449026716" target="_blank" class="p-3 bg-gray-50 rounded-full hover:bg-brand-navy hover:text-white transition-all shadow-sm group" title="Currículo Lattes">
                          <img src="./assets/lattes_logo.png" class="w-5 h-5 object-contain opacity-70 group-hover:filter group-hover:brightness-0 group-hover:invert" alt="Lattes">
+                    </a>
+                    <!-- CRM Link Placeholder -->
+                    <a href="#" target="_blank" class="p-3 bg-gray-50 rounded-full text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm opacity-40 hover:opacity-100" title="Consultar CRM (Em breve)">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
                     </a>
                 </div>
             </div>
