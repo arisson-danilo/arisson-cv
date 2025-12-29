@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árisson Danilo - Currículo Médico</title>
+    <meta name="description" content="Currículo de Árisson Danilo Ferreira Ribeiro - Interno de Medicina UFVJM">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#1e293b',
+                        'navy-light': '#334155',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Header/Hero Section -->
+    <header class="bg-gradient-to-br from-navy to-navy-light text-white min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <!-- Foto de Perfil -->
+            <div class="mb-8">
+                <img src="./assets/profile.jpg" alt="Árisson Danilo Ferreira Ribeiro"
+                     class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white shadow-lg">
+            </div>
+
+            <!-- Nome e Subtítulo -->
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Árisson Danilo Ferreira Ribeiro</h1>
+            <h2 class="text-xl md:text-2xl font-light mb-6 opacity-90">Interno de Medicina (5º ano) | UFVJM</h2>
+
+            <!-- Tagline -->
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-80">
+                Foco em Raciocínio Clínico, Medicina Baseada em Evidências e Eficiência Médica.
+            </p>
+
+            <!-- Botões de Ação -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5538999999999?text=Olá%20Árisson,%20vi%20seu%20currículo%20e%20gostaria%20de%20conversar"
+                   class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    WhatsApp
+                </a>
+                <a href="#" class="bg-white text-navy hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                    Currículo Lattes
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-8 text-center">Sobre Mim</h2>
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <p class="text-lg leading-relaxed text-gray-700">
+                    Acadêmico de Medicina no 5º ano da Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM).
+                    Atualmente no ciclo de Internato Médico, com foco prático em urgência, emergência e clínica médica.
+                    Apaixonado pela interseção entre medicina humana, ética e tecnologia para otimização de fluxos clínicos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Trajectory Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-12 text-center">Trajetória Acadêmica</h2>
+            <div class="space-y-6">
+                <!-- UFVJM -->
+                <div class="bg-white border-l-4 border-blue-600 rounded-r-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-navy mb-2">Bacharelado em Medicina</h3>
+                            <p class="text-gray-600 mb-1">Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM)</p>
+                            <p class="text-sm text-gray-500">2020 - Presente | Previsão de formatura: 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monitorias (se houver) -->
+                <div class="bg-white border-l-4 border-green-600 rounded-r-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-green-100 p-3 rounded-full">
+                            <i data-lucide="book-open" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-navy mb-2">Monitoria de Semiologia</h3>
+                            <p class="text-gray-600 mb-1">UFVJM</p>
+                            <p class="text-sm text-gray-500">2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Certifications Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-12 text-center">Habilidades & Certificações</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <!-- ACLS Provider - Destaque Especial -->
+                <div class="bg-gradient-to-br from-red-600 to-red-700 text-white rounded-lg shadow-lg p-6 md:col-span-2 hover:shadow-xl transition-shadow">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white bg-opacity-20 p-3 rounded-full">
+                            <i data-lucide="heart" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">ACLS Provider</h3>
+                            <p class="text-red-100">Suporte Avançado de Vida Cardiovascular</p>
+                            <p class="text-sm text-red-200 mt-1">American Heart Association</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Idiomas -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i data-lucide="languages" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy">Idiomas</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Português</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Nativo</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Inglês</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">B2 - Avançado/Técnico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tecnologia -->
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full">
+                            <i data-lucide="cpu" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-navy">Tecnologia</h3>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Python</span>
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Básico</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Automação de Fluxos</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Intermediário</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Prontuários Eletrônicos</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Avançado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-8 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-sm opacity-80">
+                Designed by Árisson Danilo. Hosted on GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script para inicializar ícones Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
