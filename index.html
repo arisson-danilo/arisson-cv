@@ -4,44 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Árisson Danilo | Medicina & Tecnologia</title>
-    <meta name="description" content="Portfólio de Árisson Danilo Ferreira Ribeiro - Acadêmico de Medicina UFVJM. Foco em Clínica Médica, Urgência e Tecnologias em Saúde.">
+    <meta name="description" content="Portfólio de Árisson Danilo Ferreira Ribeiro - Acadêmico de Medicina UFVJM. Excelência em Clínica Médica, Urgência e Inovação em Saúde.">
     
-    <!-- Tailwind CSS via CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
-    <!-- Google Fonts: Plus Jakarta Sans for a modern, medical tech feel -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Playfair Display for authoritative headings, Lato for clean body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
                     },
                     colors: {
-                        medical: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9', // Sky blue for accents
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e', // Deep Navy
-                        },
-                        slate: {
-                            850: '#1e293b',
-                            900: '#0f172a',
-                        }
+                        'brand-black': '#1a1a1a',
+                        'brand-gray': '#4a4a4a',
+                        'brand-gold': '#c5a059', /* Premium medical gold/bronze */
+                        'brand-gold-light': '#f0e6d2',
+                        'brand-navy': '#0f172a',
                     },
                     boxShadow: {
-                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-                        'hover': '0 20px 40px -4px rgba(0, 0, 0, 0.1)',
+                        'elegant': '0 10px 40px -10px rgba(0, 0, 0, 0.08)',
                     }
                 }
             }
@@ -50,412 +43,380 @@
 
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FAFAFA;
-            color: #334155;
+            font-family: 'Lato', sans-serif;
+            background-color: #ffffff;
+            color: #4a4a4a;
         }
         
-        /* Subtle Pattern Background */
-        .bg-grid-pattern {
-            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-            background-size: 40px 40px;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
         }
 
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-        }
-
-        /* Smooth Reveal Animation */
-        .reveal {
+        /* Elegant Fade In */
+        .fade-in-up {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
-        .reveal.active {
+        .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Gradient Text */
-        .text-gradient {
-            background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        /* Subtle texture for sections */
+        .bg-texture {
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 32px 32px;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-medical-100 selection:text-medical-900">
+<body class="antialiased overflow-x-hidden">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-                <div class="w-8 h-8 bg-medical-900 text-white rounded-lg flex items-center justify-center">
-                    <span class="font-bold text-lg">A</span>
-                </div>
-                <span>Árisson Danilo</span>
-            </a>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="#sobre" class="hover:text-medical-700 transition-colors">Sobre</a>
-                <a href="#trajetoria" class="hover:text-medical-700 transition-colors">Trajetória</a>
-                <a href="#competencias" class="hover:text-medical-700 transition-colors">Competências</a>
-                <a href="https://wa.me/5538998390438?text=Olá%20Árisson,%20vi%20seu%20site%20e%20gostaria%20de%20conversar" class="flex items-center gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white px-5 py-2.5 rounded-full transition-all shadow-lg shadow-green-900/20">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-5 h-5" alt="WhatsApp">
-                    <span>Fale Comigo</span>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand -->
+                <a href="#" class="text-2xl font-serif font-bold text-brand-navy tracking-tight hover:opacity-80 transition-opacity">
+                    Árisson Danilo<span class="text-brand-gold">.</span>
                 </a>
-            </div>
 
-            <!-- Mobile Contact Button -->
-            <a href="https://wa.me/5538998390438?text=Olá%20Árisson,%20vi%20seu%20site%20e%20gostaria%20de%20conversar" class="md:hidden flex items-center justify-center bg-[#25D366] text-white p-2.5 rounded-full shadow-lg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-5 h-5" alt="WhatsApp">
-            </a>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#sobre" class="text-sm font-medium text-brand-gray hover:text-brand-navy transition-colors tracking-wide uppercase">Sobre</a>
+                    <a href="#trajetoria" class="text-sm font-medium text-brand-gray hover:text-brand-navy transition-colors tracking-wide uppercase">Trajetória</a>
+                    <a href="#competencias" class="text-sm font-medium text-brand-gray hover:text-brand-navy transition-colors tracking-wide uppercase">Expertise</a>
+                    <a href="https://wa.me/5538998390438?text=Olá%20Árisson,%20gostaria%20de%20agendar%20uma%20conversa." 
+                       class="px-6 py-2 bg-brand-navy text-white text-sm font-medium rounded-sm hover:bg-brand-black transition-colors shadow-lg shadow-brand-navy/20">
+                        Contato
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-navy p-2 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-b border-gray-100 absolute w-full left-0 top-20 shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#sobre" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Sobre</a>
+                <a href="#trajetoria" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Trajetória</a>
+                <a href="#competencias" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Expertise</a>
+                <a href="https://wa.me/5538998390438" class="block px-3 py-3 text-base font-medium text-brand-gold hover:bg-gray-50 rounded-md font-bold">Fale Comigo no WhatsApp</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
-        <!-- Background Decor -->
-        <div class="absolute inset-0 bg-grid-pattern opacity-[0.4] pointer-events-none"></div>
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-medical-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10 w-full">
-            <div class="reveal active space-y-8">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-medical-50 text-medical-800 rounded-full text-xs font-bold uppercase tracking-wider border border-medical-100">
-                    <span class="w-2 h-2 rounded-full bg-medical-500 animate-pulse"></span>
-                    Internato Médico • UFVJM
-                </div>
+    <section class="relative min-h-screen flex items-center pt-20 bg-texture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
                 
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight">
-                    Medicina com <br>
-                    <span class="text-gradient">Excelência &</span> <br>
-                    Inovação.
-                </h1>
-                
-                <p class="text-lg md:text-xl text-slate-600 max-w-lg leading-relaxed">
-                    Unindo raciocínio clínico apurado, medicina baseada em evidências e tecnologia para transformar o cuidado em saúde.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="https://wa.me/5538998390438?text=Olá%20Árisson,%20vi%20seu%20site%20e%20gostaria%20de%20conversar" 
-                       class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#128C7E] transition-all shadow-xl shadow-green-900/10 hover:-translate-y-1">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6 filter brightness-0 invert" alt="WhatsApp">
-                        WhatsApp
-                    </a>
-                    <a href="http://lattes.cnpq.br/1577887449026716" target="_blank"
-                       class="inline-flex items-center justify-center gap-3 bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all hover:-translate-y-1 group">
-                        <!-- Lattes Icon (CNPq styled) -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/CNPq_Logo.svg/1200px-CNPq_Logo.svg.png" 
-                             class="w-12 h-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity" 
-                             alt="CNPq">
-                        <span>Currículo Lattes</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="relative reveal delay-200 hidden md:block">
-                <!-- Image Frame -->
-                <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl shadow-medical-900/20 border-4 border-white group">
-                    <!-- Placeholder image from Unsplash (Generic Male Medical Student/Doctor) -->
-                    <!-- REPLACE src below with "./assets/profile.jpg" when you have your photo -->
-                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" 
-                         alt="Árisson Danilo" 
-                         class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                <!-- Text Content -->
+                <div class="flex-1 text-center lg:text-left pt-8 lg:pt-0">
+                    <div class="inline-block px-3 py-1 mb-6 border border-brand-gold/30 rounded-full bg-brand-gold/5 fade-in-up">
+                        <span class="text-xs font-bold text-brand-gold tracking-widest uppercase">Internato Médico • UFVJM</span>
+                    </div>
                     
-                    <!-- Overlay for "Coming Soon" if using placeholder (Optional, removed for cleaner look) -->
-                </div>
-                <!-- Decorative Elements behind image -->
-                <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-medical-600 rounded-2xl -z-10"></div>
-                <div class="absolute -top-6 -left-6 w-full h-full border-2 border-medical-200 rounded-2xl -z-10"></div>
-                
-                <!-- Floating Badge -->
-                <div class="absolute top-8 -right-8 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3 animate-[float_4s_ease-in-out_infinite]">
-                    <div class="p-2 bg-green-100 text-green-700 rounded-lg">
-                        <i data-lucide="activity" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <p class="text-xs text-slate-500 font-semibold uppercase">Foco</p>
-                        <p class="text-sm font-bold text-slate-900">Urgência & Emergência</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre / About Section -->
-    <section id="sobre" class="py-24 bg-white relative">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold text-medical-600 uppercase tracking-widest mb-2">Sobre o Profissional</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Perfil Comprometido com a Vida</h3>
-            </div>
-            
-            <div class="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100 shadow-soft reveal">
-                <div class="flex flex-col md:flex-row gap-10 items-start">
-                    <div class="flex-1 space-y-6 text-lg text-slate-600 leading-relaxed">
-                        <p>
-                            <span class="text-2xl font-serif text-medical-900 block mb-4">Olá,</span>
-                            Sou acadêmico do 5º ano de Medicina na <strong class="text-slate-900">Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM)</strong>. 
-                        </p>
-                        <p>
-                            Minha formação é pautada na busca incessante pela excelência técnica aliada a um olhar humanizado. Atualmente no ciclo de <strong class="text-medical-700">Internato Médico</strong>, dedico-me intensamente à prática em ambientes de alta complexidade.
-                        </p>
-                        <p>
-                            Acredito que a medicina moderna exige não apenas conhecimento biológico, mas também competência em gestão de dados e tecnologia para oferecer diagnósticos precisos e tratamentos eficazes.
-                        </p>
-                    </div>
-                    <div class="w-full md:w-auto grid grid-cols-1 gap-4 min-w-[200px]">
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
-                            <h4 class="text-3xl font-bold text-medical-600 mb-1">2026</h4>
-                            <p class="text-xs text-slate-500 font-medium uppercase">Previsão de Formatura</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
-                            <h4 class="text-3xl font-bold text-medical-600 mb-1">5º</h4>
-                            <p class="text-xs text-slate-500 font-medium uppercase">Ano do Curso</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Academic Path -->
-    <section id="trajetoria" class="py-24 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4 reveal">
-                <div>
-                    <h2 class="text-sm font-bold text-medical-600 uppercase tracking-widest mb-2">Educação & Experiência</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Trajetória Acadêmica</h3>
-                </div>
-                <div class="h-1 w-full md:w-32 bg-slate-200 rounded-full"></div>
-            </div>
-
-            <div class="space-y-8 relative">
-                <div class="absolute left-[27px] top-8 bottom-8 w-[2px] bg-slate-200 hidden md:block"></div>
-
-                <!-- Item 1 -->
-                <div class="reveal flex flex-col md:flex-row gap-8 relative group">
-                    <div class="hidden md:flex flex-none w-20 h-20 rounded-xl bg-white border border-slate-100 items-center justify-center shadow-sm z-10 p-2 group-hover:scale-110 transition-transform duration-300">
-                        <!-- UFVJM Logo with Multiply blend mode to handle white background -->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/UFVJM.jpg" 
-                             class="w-full h-full object-contain mix-blend-multiply" 
-                             alt="UFVJM Logo">
-                    </div>
-                    <div class="flex-1 bg-white p-8 rounded-2xl shadow-soft border border-slate-100 group-hover:shadow-hover transition-all duration-300">
-                        <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
-                            <div>
-                                <h4 class="text-xl font-bold text-slate-900">Bacharelado em Medicina</h4>
-                                <p class="text-medical-700 font-medium">UFVJM - Universidade Federal dos Vales do Jequitinhonha e Mucuri</p>
-                            </div>
-                            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase">Em Andamento</span>
-                        </div>
-                        <p class="text-slate-600 mb-4">Formação generalista com ênfase em saúde pública e atenção primária, evoluindo para especialidades clínicas e cirúrgicas no internato.</p>
-                        <div class="flex items-center gap-2 text-sm text-slate-500">
-                            <i data-lucide="calendar" class="w-4 h-4"></i>
-                            2020 - 2026
-                        </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-navy leading-tight mb-6 fade-in-up delay-100">
+                        Medicina de precisão,<br>
+                        <span class="italic font-serif text-brand-gold">cuidado humano.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-brand-gray mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 fade-in-up delay-200">
+                        Unindo a tradição da prática clínica com as mais modernas tecnologias em saúde. 
+                        Foco em Medicina Baseada em Evidências e Urgência e Emergência.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 fade-in-up delay-300">
+                        <a href="https://wa.me/5538998390438?text=Olá%20Árisson,%20vi%20seu%20site%20e%20gostaria%20de%20conversar" 
+                           class="w-full sm:w-auto px-8 py-4 bg-brand-navy text-white font-medium rounded-sm shadow-xl shadow-brand-navy/10 hover:bg-brand-black transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-5 h-5 filter brightness-0 invert" alt="WhatsApp">
+                            Agendar Conversa
+                        </a>
+                        <a href="http://lattes.cnpq.br/1577887449026716" target="_blank"
+                           class="w-full sm:w-auto px-8 py-4 bg-white border border-gray-200 text-brand-navy font-medium rounded-sm hover:border-brand-gold hover:text-brand-gold transition-all flex items-center justify-center gap-3 group">
+                           <!-- Logo Lattes Local -->
+                           <img src="./assets/lattes_logo.png" class="h-5 w-auto opacity-70 group-hover:opacity-100 transition-opacity" alt="Lattes">
+                           Currículo Lattes
+                        </a>
                     </div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="reveal flex flex-col md:flex-row gap-8 relative group">
-                    <div class="hidden md:flex flex-none w-14 h-14 rounded-full bg-white border-4 border-slate-100 text-slate-500 items-center justify-center shadow-sm z-10 group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="book-open" class="w-6 h-6"></i>
-                    </div>
-                    <div class="flex-1 bg-white p-8 rounded-2xl shadow-soft border border-slate-100 group-hover:shadow-hover transition-all duration-300">
-                        <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
-                            <div>
-                                <h4 class="text-xl font-bold text-slate-900">Monitoria de Semiologia Médica</h4>
-                                <p class="text-slate-700 font-medium">UFVJM</p>
-                            </div>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-full uppercase">Concluído</span>
-                        </div>
-                        <p class="text-slate-600 mb-4">Auxílio no ensino prático de exame físico e anamnese para turmas iniciais, reforçando bases propedêuticas essenciais.</p>
-                        <div class="flex items-center gap-2 text-sm text-slate-500">
-                            <i data-lucide="calendar" class="w-4 h-4"></i>
-                            2023
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills & Certifications -->
-    <section id="competencias" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-sm font-bold text-medical-600 uppercase tracking-widest mb-2">Expertise</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Competências e Certificações</h3>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Highlight Card -->
-                <div class="md:col-span-3 reveal">
-                    <div class="bg-white rounded-2xl p-8 md:p-12 border border-slate-100 shadow-xl relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-red-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-red-100 transition-colors"></div>
+                <!-- Profile Image -->
+                <div class="flex-1 w-full max-w-md lg:max-w-full relative fade-in-up delay-200">
+                    <div class="relative aspect-[4/5] lg:aspect-square overflow-hidden rounded-sm shadow-2xl">
+                        <!-- Profile Image Placeholder - Replace with ./assets/profile.jpg -->
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=1000" 
+                             alt="Árisson Danilo - Médico" 
+                             class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
                         
-                        <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                            <div class="w-24 h-24 bg-white rounded-2xl flex items-center justify-center p-4 border border-slate-100 shadow-sm">
-                                <!-- American Heart Association Logo (SVG URL) -->
-                                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/American_Heart_Association_Logo.svg/1200px-American_Heart_Association_Logo.svg.png" 
-                                     class="w-full h-full object-contain" 
-                                     alt="American Heart Association">
-                            </div>
-                            <div class="flex-1 text-center md:text-left">
-                                <div class="inline-block px-3 py-1 bg-red-100 text-red-700 border border-red-200 rounded-full text-xs font-bold mb-3 uppercase tracking-wide">
-                                    Certificação Internacional
+                        <!-- Overlay Gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent"></div>
+                        
+                        <!-- Floating Card -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-6 rounded-sm shadow-lg border-l-4 border-brand-gold">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-brand-navy/5 p-3 rounded-full">
+                                    <i data-lucide="stethoscope" class="w-6 h-6 text-brand-navy"></i>
                                 </div>
-                                <h4 class="text-3xl font-bold text-slate-900 mb-2">ACLS Provider</h4>
-                                <p class="text-slate-600 text-lg">Advanced Cardiovascular Life Support</p>
-                            </div>
-                            <div class="flex-none">
-                                <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center border border-green-100">
-                                    <i data-lucide="check" class="w-8 h-8 text-green-600 font-bold"></i>
+                                <div>
+                                    <p class="text-xs font-bold text-brand-gold uppercase tracking-wider">Especialidade</p>
+                                    <p class="text-lg font-serif font-bold text-brand-navy">Clínica Médica</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Element -->
+                    <div class="absolute -z-10 top-10 -right-10 w-full h-full border-2 border-brand-gold/20 rounded-sm hidden lg:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-12 items-start">
+                <div class="md:col-span-4 fade-in-up">
+                    <h2 class="text-3xl lg:text-4xl font-serif font-bold text-brand-navy mb-6 relative inline-block">
+                        Sobre Mim
+                        <span class="absolute -bottom-2 left-0 w-12 h-1 bg-brand-gold"></span>
+                    </h2>
+                    <p class="text-brand-gold font-medium italic text-lg">
+                        "A medicina é a arte de curar, mas também a ciência de compreender."
+                    </p>
+                </div>
+                
+                <div class="md:col-span-8 space-y-6 text-lg text-gray-600 leading-relaxed fade-in-up delay-100">
+                    <p>
+                        Como acadêmico do 5º ano na <strong class="text-brand-navy">Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM)</strong>, minha trajetória é definida pelo rigor acadêmico e pela paixão pela prática clínica.
+                    </p>
+                    <p>
+                        Minha atuação no internato médico tem sido marcada pela busca constante por excelência no diagnóstico e manejo de pacientes críticos. Acredito que a integração entre conhecimento técnico sólido e ferramentas tecnológicas é o caminho para uma medicina mais eficiente e humana.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 pt-6">
+                        <div class="p-6 bg-brand-gold-light/20 border border-brand-gold/10 rounded-sm">
+                            <span class="block text-4xl font-serif font-bold text-brand-navy mb-1">2026</span>
+                            <span class="text-sm text-brand-gray uppercase tracking-wider">Formatura Prevista</span>
+                        </div>
+                        <div class="p-6 bg-brand-navy/5 border border-brand-navy/10 rounded-sm">
+                            <span class="block text-4xl font-serif font-bold text-brand-navy mb-1">5+</span>
+                            <span class="text-sm text-brand-gray uppercase tracking-wider">Anos de Estudo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trajetória / Education -->
+    <section id="trajetoria" class="py-24 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-brand-gold font-bold text-xs tracking-[0.2em] uppercase">Excelência Acadêmica</span>
+                <h2 class="text-3xl lg:text-4xl font-serif font-bold text-brand-navy mt-2">Formação & Experiência</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-sm shadow-elegant border border-gray-100 hover:border-brand-gold/30 transition-colors fade-in-up">
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="w-16 h-16 flex-shrink-0 bg-white border border-gray-100 p-2 rounded-sm shadow-sm flex items-center justify-center">
+                            <!-- Logo UFVJM Local -->
+                            <img src="./assets/ufvjm_logo.png" class="w-full h-full object-contain" alt="UFVJM">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                                <h3 class="text-xl font-bold text-brand-navy">Bacharelado em Medicina</h3>
+                                <span class="text-sm font-medium text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full w-fit mt-2 sm:mt-0">Em Andamento</span>
+                            </div>
+                            <p class="text-brand-gray font-medium mb-3">UFVJM - Universidade Federal dos Vales do Jequitinhonha e Mucuri</p>
+                            <p class="text-gray-500 mb-4 leading-relaxed">
+                                Formação integral com ênfase em Saúde Coletiva, Clínica Médica e Cirurgia. Atuação prática em hospitais regionais e unidades básicas de saúde.
+                            </p>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                <span>2020 - 2026</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Skill Card 1 -->
-                <div class="reveal bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-medical-200 transition-colors group">
-                    <div class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="languages" class="w-6 h-6 text-medical-600"></i>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-sm shadow-elegant border border-gray-100 hover:border-brand-gold/30 transition-colors fade-in-up delay-100">
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="w-16 h-16 flex-shrink-0 bg-brand-navy text-white rounded-sm flex items-center justify-center">
+                            <i data-lucide="book-open" class="w-8 h-8"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                                <h3 class="text-xl font-bold text-brand-navy">Monitoria de Semiologia Médica</h3>
+                                <span class="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit mt-2 sm:mt-0">Concluído</span>
+                            </div>
+                            <p class="text-brand-gray font-medium mb-3">UFVJM</p>
+                            <p class="text-gray-500 mb-4 leading-relaxed">
+                                Responsável por instruir alunos mais novos nas técnicas fundamentais de exame físico e raciocínio clínico, sob supervisão docente.
+                            </p>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="calendar" class="w-4 h-4"></i>
+                                <span>2023</span>
+                            </div>
+                        </div>
                     </div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-4">Idiomas</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center justify-between text-slate-600">
-                            <span>Português</span>
-                            <span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Nativo</span>
-                        </li>
-                        <li class="flex items-center justify-between text-slate-600">
-                            <span>Inglês</span>
-                            <span class="text-xs font-bold bg-medical-100 text-medical-700 px-2 py-1 rounded">Avançado (B2)</span>
-                        </li>
-                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise / Skills -->
+    <section id="competencias" class="py-24 bg-brand-navy text-white relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Main Certification -->
+                <div class="lg:col-span-1 bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-sm hover:bg-white/10 transition-colors fade-in-up">
+                    <div class="mb-6">
+                         <!-- American Heart Icon -->
+                        <div class="w-16 h-16 bg-white rounded-sm flex items-center justify-center p-2">
+                             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/American_Heart_Association_Logo.svg/1200px-American_Heart_Association_Logo.svg.png" 
+                                  class="w-full h-full object-contain" alt="AHA">
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-2">ACLS Provider</h3>
+                    <p class="text-brand-gold mb-4 text-sm uppercase tracking-wider font-bold">American Heart Association</p>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Certificação internacional em Suporte Avançado de Vida Cardiovascular. Capacitação para manejo de paradas cardiorrespiratórias e outras emergências cardiovasculares.
+                    </p>
+                    <div class="flex items-center gap-2 text-green-400 text-sm font-bold">
+                        <i data-lucide="check-circle" class="w-5 h-5"></i>
+                        <span>Certificado Ativo</span>
+                    </div>
                 </div>
 
-                <!-- Skill Card 2 -->
-                <div class="reveal bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-medical-200 transition-colors group">
-                    <div class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="monitor-smartphone" class="w-6 h-6 text-medical-600"></i>
+                <!-- Skills List -->
+                <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+                    <!-- Tech in Health -->
+                    <div class="bg-transparent border border-white/10 p-6 rounded-sm fade-in-up delay-100">
+                        <i data-lucide="laptop-2" class="w-8 h-8 text-brand-gold mb-4"></i>
+                        <h4 class="text-xl font-bold mb-4">Tecnologia em Saúde</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                                Prontuários Eletrônicos
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                                Telemedicina
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                                Análise de Dados com Python
+                            </li>
+                        </ul>
                     </div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-4">Tecnologia em Saúde</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-2 text-slate-600">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
-                            <span>Prontuários Eletrônicos</span>
-                        </li>
-                        <li class="flex items-center gap-2 text-slate-600">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
-                            <span>Telemedicina</span>
-                        </li>
-                        <li class="flex items-center gap-2 text-slate-600">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
-                            <span>Apps de Suporte à Decisão</span>
-                        </li>
-                    </ul>
-                </div>
 
-                <!-- Skill Card 3 -->
-                <div class="reveal bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:border-medical-200 transition-colors group">
-                    <div class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="code-2" class="w-6 h-6 text-medical-600"></i>
+                    <!-- Languages & Soft Skills -->
+                    <div class="bg-transparent border border-white/10 p-6 rounded-sm fade-in-up delay-200">
+                        <i data-lucide="languages" class="w-8 h-8 text-brand-gold mb-4"></i>
+                        <h4 class="text-xl font-bold mb-4">Competências Globais</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center justify-between">
+                                <span>Inglês Avançado (B2)</span>
+                                <span class="text-xs border border-white/30 px-2 py-0.5 rounded">Fluente</span>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <span>Comunicação Clínica</span>
+                                <span class="text-xs border border-white/30 px-2 py-0.5 rounded">Expert</span>
+                            </li>
+                            <li class="flex items-center justify-between">
+                                <span>Liderança de Equipe</span>
+                                <span class="text-xs border border-white/30 px-2 py-0.5 rounded">Prático</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-4">Diferenciais</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center gap-2 text-slate-600">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-medical-500"></i>
-                            <span>Python (Análise de Dados)</span>
-                        </li>
-                        <li class="flex items-center gap-2 text-slate-600">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-medical-500"></i>
-                            <span>Automação de Fluxos</span>
-                        </li>
-                        <li class="flex items-center gap-2 text-slate-600">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-medical-500"></i>
-                            <span>Pesquisa Acadêmica</span>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white pt-20 pb-10">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 mb-16">
-                <div>
-                    <a href="#" class="text-2xl font-bold tracking-tight text-white flex items-center gap-2 mb-6">
-                        <div class="w-10 h-10 bg-white text-slate-900 rounded-lg flex items-center justify-center">
-                            <span class="font-bold text-xl">A</span>
-                        </div>
-                        <span>Árisson Danilo</span>
-                    </a>
-                    <p class="text-slate-400 max-w-sm leading-relaxed">
-                        Compromisso com a medicina de excelência, ética e inovação. Disponível para networking e colaborações acadêmicas.
-                    </p>
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl font-serif font-bold text-brand-navy">Árisson Danilo<span class="text-brand-gold">.</span></h2>
+                    <p class="text-gray-500 mt-2">Medicina • Tecnologia • Inovação</p>
                 </div>
-                <div class="flex flex-col md:items-end justify-center">
-                    <div class="flex gap-4">
-                        <a href="https://wa.me/5538998390438?text=Olá%20Árisson,%20vi%20seu%20site%20e%20gostaria%20de%20conversar" 
-                           class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#25D366] transition-colors group" title="WhatsApp">
-                            <i data-lucide="message-circle" class="w-6 h-6"></i>
-                        </a>
-                        <a href="http://lattes.cnpq.br/1577887449026716" target="_blank"
-                           class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-white transition-colors group" title="Currículo Lattes">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/CNPq_Logo.svg/1200px-CNPq_Logo.svg.png" 
-                                 class="w-6 h-6 object-contain filter grayscale group-hover:grayscale-0" alt="Lattes">
-                        </a>
-                        <a href="mailto:arisson.danilo@ufvjm.edu.br" 
-                           class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-medical-500 transition-colors" title="Email">
-                            <i data-lucide="mail" class="w-6 h-6"></i>
-                        </a>
-                    </div>
+                
+                <div class="flex gap-6">
+                    <a href="https://wa.me/5538998390438" class="p-3 bg-gray-50 rounded-full text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:arisson.danilo@ufvjm.edu.br" class="p-3 bg-gray-50 rounded-full text-brand-navy hover:bg-brand-navy hover:text-white transition-all shadow-sm">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                    <a href="http://lattes.cnpq.br/1577887449026716" target="_blank" class="p-3 bg-gray-50 rounded-full hover:bg-brand-navy hover:text-white transition-all shadow-sm group">
+                        <!-- Tiny Lattes Icon -->
+                         <img src="./assets/lattes_logo.png" class="w-5 h-5 object-contain opacity-70 group-hover:filter group-hover:brightness-0 group-hover:invert" alt="Lattes">
+                    </a>
                 </div>
             </div>
             
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                 <p>&copy; 2025 Árisson Danilo. Todos os direitos reservados.</p>
-                <p>Designed with precision.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-navy transition-colors">Privacidade</a>
+                    <a href="#" class="hover:text-brand-navy transition-colors">Termos</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Fixed WhatsApp Button for Mobile -->
+    <a href="https://wa.me/5538998390438?text=Olá%20Árisson,%20gostaria%20de%20agendar%20uma%20conversa." 
+       class="md:hidden fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:bg-[#1eab52] transition-transform hover:scale-110">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6 filter brightness-0 invert" alt="WhatsApp">
+    </a>
+
     <script>
-        // Init Icons
+        // Initialize Icons
         lucide.createIcons();
 
-        // Intersection Observer for Reveal Animation
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
 
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+                    entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        
-        // Navbar blur effect optimization
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-sm');
-            } else {
-                nav.classList.remove('shadow-sm');
-            }
-        });
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
