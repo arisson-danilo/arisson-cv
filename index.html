@@ -32,8 +32,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Playfair Display for authoritative headings, Lato for clean body text -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Playfair Display for authoritative headings, Lato for clean body text, Great Vibes for signature -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -42,6 +42,7 @@
                     fontFamily: {
                         sans: ['"Lato"', 'sans-serif'],
                         serif: ['"Playfair Display"', 'serif'],
+                        signature: ['"Great Vibes"', 'cursive'],
                     },
                     colors: {
                         'brand-black': '#1a1a1a',
@@ -224,6 +225,10 @@
                         Como acadêmico do 5º ano na <strong class="text-brand-navy">Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM)</strong>, integro essa sensibilidade social ao rigor científico da Medicina Baseada em Evidências e ao uso inteligente da tecnologia em saúde.
                     </p>
                     
+                    <div class="pt-4 pb-2">
+                        <p class="font-signature text-4xl text-brand-navy/80">Árisson Danilo</p>
+                    </div>
+
                     <div class="grid grid-cols-2 gap-6 pt-6">
                         <div class="p-6 bg-brand-gold-light/20 border border-brand-gold/10 rounded-sm">
                             <span class="block text-4xl font-serif font-bold text-brand-navy mb-1">2026</span>
@@ -444,6 +449,11 @@
         <img src="./assets/whatsapp_logo.svg" class="w-8 h-8" alt="WhatsApp">
     </a>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 left-6 z-40 bg-brand-navy text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-brand-black hover:-translate-y-1" aria-label="Voltar ao topo">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
     <script>
         // Initialize Icons
         lucide.createIcons();
@@ -466,6 +476,24 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+
+        // Back to Top Logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
