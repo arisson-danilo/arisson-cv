@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +12,136 @@
     <!-- Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            padding-top: 10px;
+        }
+        
+        .scroll-indicator::before {
+            content: '';
+            width: 4px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 2px;
+            animation: scroll-down 2s infinite;
+        }
+        
+        @keyframes scroll-down {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0; }
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 11px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
     </style>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'navy': '#1e293b',
-                        'navy-light': '#334155',
+                        'navy': '#0f172a',
+                        'navy-light': '#1e293b',
+                        'medical-blue': '#1e40af',
+                        'medical-light': '#3b82f6',
                     }
                 }
             }
@@ -31,81 +150,158 @@
 </head>
 <body class="bg-white text-gray-900">
     <!-- Header/Hero Section -->
-    <header class="bg-gradient-to-br from-navy to-navy-light text-white min-h-screen flex items-center justify-center px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <!-- Foto de Perfil -->
-            <div class="mb-8">
-                <img src="./assets/profile.jpg" alt="Árisson Danilo Ferreira Ribeiro"
-                     class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white shadow-lg">
+    <header class="relative bg-gradient-to-br from-navy via-medical-blue to-purple-900 text-white min-h-screen flex items-center justify-center px-4 overflow-hidden hero-pattern">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="relative max-w-6xl mx-auto text-center z-10 animate-fade-in-up">
+            <!-- Foto de Perfil com efeito premium -->
+            <div class="mb-10 relative inline-block">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-2xl opacity-50 animate-pulse-glow"></div>
+                <div class="relative">
+                    <img src="./assets/profile.jpg" alt="Árisson Danilo Ferreira Ribeiro"
+                         class="w-40 h-40 md:w-48 md:h-48 rounded-full mx-auto object-cover border-4 border-white shadow-2xl ring-4 ring-blue-200/50">
+                </div>
             </div>
 
             <!-- Nome e Subtítulo -->
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Árisson Danilo Ferreira Ribeiro</h1>
-            <h2 class="text-xl md:text-2xl font-light mb-6 opacity-90">Interno de Medicina (5º ano) | UFVJM</h2>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                <span class="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+                    Árisson Danilo<br>Ferreira Ribeiro
+                </span>
+            </h1>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect mb-6">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                <h2 class="text-lg md:text-2xl font-medium">Interno de Medicina (5º ano) | UFVJM</h2>
+            </div>
 
             <!-- Tagline -->
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-80">
-                Foco em Raciocínio Clínico, Medicina Baseada em Evidências e Eficiência Médica.
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-light opacity-95">
+                Foco em <span class="font-semibold text-blue-200">Raciocínio Clínico</span>, 
+                <span class="font-semibold text-purple-200">Medicina Baseada em Evidências</span> e 
+                <span class="font-semibold text-pink-200">Eficiência Médica</span>.
             </p>
 
-            <!-- Botões de Ação -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <!-- Botões de Ação Premium -->
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
                 <a href="https://wa.me/5538999999999?text=Olá%20Árisson,%20vi%20seu%20currículo%20e%20gostaria%20de%20conversar"
-                   class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                    WhatsApp
+                   class="group relative bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-10 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl transform hover:scale-105">
+                    <i data-lucide="message-circle" class="w-6 h-6 group-hover:rotate-12 transition-transform"></i>
+                    <span>WhatsApp</span>
+                    <div class="absolute inset-0 rounded-xl bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
                 </a>
-                <a href="#" class="bg-white text-navy hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
-                    <i data-lucide="file-text" class="w-5 h-5"></i>
-                    Currículo Lattes
+                
+                <a href="#" class="group glass-effect hover:bg-white/20 text-white px-10 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 border-2 border-white/30 hover:border-white/50 shadow-lg hover:shadow-2xl transform hover:scale-105">
+                    <i data-lucide="file-text" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+                    <span>Currículo Lattes</span>
                 </a>
             </div>
         </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator hidden md:block"></div>
     </header>
 
     <!-- About Section -->
-    <section class="py-16 px-4 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-8 text-center">Sobre Mim</h2>
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <p class="text-lg leading-relaxed text-gray-700">
-                    Acadêmico de Medicina no 5º ano da Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM).
-                    Atualmente no ciclo de Internato Médico, com foco prático em urgência, emergência e clínica médica.
-                    Apaixonado pela interseção entre medicina humana, ética e tecnologia para otimização de fluxos clínicos.
-                </p>
+    <section class="relative py-24 px-4 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-blue-100 text-medical-blue rounded-full text-sm font-semibold mb-4">
+                    PERFIL PROFISSIONAL
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-4">
+                    Sobre <span class="gradient-text">Mim</span>
+                </h2>
+                <div class="section-divider w-24 mx-auto mt-6"></div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-10 md:p-12 card-hover border border-gray-100">
+                <div class="flex items-start gap-6">
+                    <div class="hidden md:flex flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl items-center justify-center shadow-lg">
+                        <i data-lucide="user" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xl md:text-2xl leading-relaxed text-gray-700 font-light">
+                            Acadêmico de Medicina no <span class="font-semibold text-medical-blue">5º ano</span> da 
+                            <span class="font-semibold">Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM)</span>.
+                            Atualmente no ciclo de <span class="font-semibold text-purple-600">Internato Médico</span>, 
+                            com foco prático em <span class="text-red-600 font-medium">urgência</span>, 
+                            <span class="text-orange-600 font-medium">emergência</span> e 
+                            <span class="text-blue-600 font-medium">clínica médica</span>.
+                        </p>
+                        <p class="text-xl md:text-2xl leading-relaxed text-gray-700 font-light mt-6">
+                            Apaixonado pela interseção entre <span class="font-semibold">medicina humana</span>, 
+                            <span class="font-semibold">ética</span> e <span class="font-semibold text-indigo-600">tecnologia</span> 
+                            para otimização de fluxos clínicos.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Academic Trajectory Section -->
-    <section class="py-16 px-4 bg-white">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-12 text-center">Trajetória Acadêmica</h2>
-            <div class="space-y-6">
-                <!-- UFVJM -->
-                <div class="bg-white border-l-4 border-blue-600 rounded-r-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-blue-100 p-3 rounded-full">
-                            <i data-lucide="graduation-cap" class="w-6 h-6 text-blue-600"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-semibold text-navy mb-2">Bacharelado em Medicina</h3>
-                            <p class="text-gray-600 mb-1">Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM)</p>
-                            <p class="text-sm text-gray-500">2020 - Presente | Previsão de formatura: 2026</p>
+    <section class="relative py-24 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">
+                    FORMAÇÃO ACADÊMICA
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-4">
+                    Trajetória <span class="gradient-text">Acadêmica</span>
+                </h2>
+                <div class="section-divider w-24 mx-auto mt-6"></div>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="timeline-line hidden md:block"></div>
+                
+                <div class="space-y-8">
+                    <!-- UFVJM -->
+                    <div class="relative card-hover bg-gradient-to-r from-white to-blue-50/30 rounded-2xl shadow-lg p-8 md:pl-16 border border-gray-100">
+                        <div class="timeline-dot hidden md:block"></div>
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                                <i data-lucide="graduation-cap" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center gap-3 mb-3">
+                                    <h3 class="text-2xl md:text-3xl font-bold text-navy">Bacharelado em Medicina</h3>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">Em Andamento</span>
+                                </div>
+                                <p class="text-lg text-gray-700 mb-2 font-medium">Universidade Federal dos Vales do Jequitinhonha e Mucuri (UFVJM)</p>
+                                <div class="flex items-center gap-2 text-gray-600">
+                                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                                    <span class="font-medium">2020 - Presente | Previsão de formatura: 2026</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Monitorias (se houver) -->
-                <div class="bg-white border-l-4 border-green-600 rounded-r-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-green-100 p-3 rounded-full">
-                            <i data-lucide="book-open" class="w-6 h-6 text-green-600"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-semibold text-navy mb-2">Monitoria de Semiologia</h3>
-                            <p class="text-gray-600 mb-1">UFVJM</p>
-                            <p class="text-sm text-gray-500">2023</p>
+                    <!-- Monitorias -->
+                    <div class="relative card-hover bg-gradient-to-r from-white to-green-50/30 rounded-2xl shadow-lg p-8 md:pl-16 border border-gray-100">
+                        <div class="timeline-dot hidden md:block"></div>
+                        <div class="flex flex-col md:flex-row items-start gap-6">
+                            <div class="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                                <i data-lucide="book-open" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center gap-3 mb-3">
+                                    <h3 class="text-2xl md:text-3xl font-bold text-navy">Monitoria de Semiologia</h3>
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">Concluída</span>
+                                </div>
+                                <p class="text-lg text-gray-700 mb-2 font-medium">UFVJM</p>
+                                <div class="flex items-center gap-2 text-gray-600">
+                                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                                    <span class="font-medium">2023</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,65 +310,97 @@
     </section>
 
     <!-- Skills & Certifications Section -->
-    <section class="py-16 px-4 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-navy mb-12 text-center">Habilidades & Certificações</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-
-                <!-- ACLS Provider - Destaque Especial -->
-                <div class="bg-gradient-to-br from-red-600 to-red-700 text-white rounded-lg shadow-lg p-6 md:col-span-2 hover:shadow-xl transition-shadow">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-white bg-opacity-20 p-3 rounded-full">
-                            <i data-lucide="heart" class="w-8 h-8"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold mb-2">ACLS Provider</h3>
-                            <p class="text-red-100">Suporte Avançado de Vida Cardiovascular</p>
-                            <p class="text-sm text-red-200 mt-1">American Heart Association</p>
+    <section class="relative py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold mb-4">
+                    COMPETÊNCIAS & CERTIFICAÇÕES
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold text-navy mb-4">
+                    Habilidades & <span class="gradient-text">Certificações</span>
+                </h2>
+                <div class="section-divider w-24 mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- ACLS Provider - Destaque Premium -->
+                <div class="md:col-span-2 relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-pink-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                    <div class="relative bg-gradient-to-br from-red-600 via-red-500 to-pink-600 text-white rounded-2xl shadow-2xl p-8 md:p-10 card-hover">
+                        <div class="flex flex-col md:flex-row items-center gap-6">
+                            <div class="flex-shrink-0 w-24 h-24 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-white/30">
+                                <i data-lucide="heart" class="w-12 h-12"></i>
+                            </div>
+                            <div class="flex-1 text-center md:text-left">
+                                <div class="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-semibold mb-3">
+                                    CERTIFICAÇÃO INTERNACIONAL
+                                </div>
+                                <h3 class="text-3xl md:text-4xl font-bold mb-3">ACLS Provider</h3>
+                                <p class="text-xl text-red-50 mb-2">Suporte Avançado de Vida Cardiovascular</p>
+                                <div class="flex items-center justify-center md:justify-start gap-2 text-red-100">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                    <span class="font-medium">American Heart Association</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Idiomas -->
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-blue-100 p-3 rounded-full">
-                            <i data-lucide="languages" class="w-6 h-6 text-blue-600"></i>
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover border border-gray-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+                            <i data-lucide="languages" class="w-8 h-8 text-white"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-navy">Idiomas</h3>
+                        <h3 class="text-2xl font-bold text-navy">Idiomas</h3>
                     </div>
-                    <div class="space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Português</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Nativo</span>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <span class="text-gray-800 font-semibold text-lg">Português</span>
+                            </div>
+                            <span class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md">Nativo</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Inglês</span>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">B2 - Avançado/Técnico</span>
+                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                <span class="text-gray-800 font-semibold text-lg">Inglês</span>
+                            </div>
+                            <span class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md">B2 - Avançado</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tecnologia -->
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="bg-purple-100 p-3 rounded-full">
-                            <i data-lucide="cpu" class="w-6 h-6 text-purple-600"></i>
+                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover border border-gray-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
+                            <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-navy">Tecnologia</h3>
+                        <h3 class="text-2xl font-bold text-navy">Tecnologia</h3>
                     </div>
-                    <div class="space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Python</span>
-                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Básico</span>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="code" class="w-5 h-5 text-purple-600"></i>
+                                <span class="text-gray-800 font-semibold text-lg">Python</span>
+                            </div>
+                            <span class="bg-purple-500 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md">Básico</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Automação de Fluxos</span>
-                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Intermediário</span>
+                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="zap" class="w-5 h-5 text-green-600"></i>
+                                <span class="text-gray-800 font-semibold text-lg">Automação de Fluxos</span>
+                            </div>
+                            <span class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md">Intermediário</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Prontuários Eletrônicos</span>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Avançado</span>
+                        <div class="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="file-text" class="w-5 h-5 text-blue-600"></i>
+                                <span class="text-gray-800 font-semibold text-lg">Prontuários Eletrônicos</span>
+                            </div>
+                            <span class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md">Avançado</span>
                         </div>
                     </div>
                 </div>
@@ -181,17 +409,86 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-navy text-white py-8 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-sm opacity-80">
-                Designed by Árisson Danilo. Hosted on GitHub Pages.
-            </p>
+    <footer class="relative bg-gradient-to-br from-navy via-medical-blue to-purple-900 text-white py-12 px-4 overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-400 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="relative max-w-6xl mx-auto">
+            <div class="text-center mb-8">
+                <div class="flex justify-center gap-6 mb-6">
+                    <a href="https://wa.me/5538999999999" 
+                       class="w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/20">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" 
+                       class="w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/20">
+                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                    </a>
+                    <a href="mailto:contato@example.com" 
+                       class="w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/20">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </a>
+                </div>
+                
+                <div class="section-divider w-32 mx-auto mb-6 bg-white/20"></div>
+                
+                <p class="text-sm md:text-base opacity-90 font-light">
+                    Designed with ❤️ by <span class="font-semibold">Árisson Danilo</span>
+                </p>
+                <p class="text-xs md:text-sm opacity-70 mt-2">
+                    Hosted on GitHub Pages
+                </p>
+            </div>
         </div>
     </footer>
 
-    <!-- Script para inicializar ícones Lucide -->
+    <!-- Scripts -->
     <script>
+        // Inicializar ícones Lucide
         lucide.createIcons();
+        
+        // Animação de scroll suave e fade-in para elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos para animação
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.card-hover, .section-divider');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+        
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
